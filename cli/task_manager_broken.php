@@ -3,11 +3,14 @@
 class Task {
     private $id;
     private $title;
+    private $description;
+    private $category;
 
-    public function __construct($id, $title) {
+    public function __construct($id, $title, $description,$category) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
+        $this->category = $category;
     }
 
     public function setTitle($title) {
@@ -17,11 +20,16 @@ class Task {
     public function setDescription($description) {
         $this->description = $description;
     }
+    public function setCategory($category){
+        $this->category = $category;
+
+    }
 
     public function displayTask() {
         echo "ID: " . $this->id . "\n";
         echo "Title: " . $this->title . "\n";
         echo "Description: " . $this->description . "\n";
+        echo "Category: " . $this->category . "\n"; 
         echo "--------------------------\n";
     }
 }
@@ -32,7 +40,8 @@ function displayAllTasks($tasks) {
     if (empty($tasks)) {
         echo "No tasks available.\n";
     } else {
-        foreach ($tasks as $task) {
+        foreach ($tasks as $key => $tasks) {
+            echo($tasks, $users[$key]);
         }
     }
 }
@@ -83,7 +92,7 @@ while (true) {
     echo "4. Delete Task\n";
     echo "5. Exit\n";
     echo "Choose an option: ";
-    $choice = trim(fgets(STDIN));
+    $choice = readline("Enter Task what you want to do: "); 
 
     switch ($choice) {
         case 1:
@@ -96,7 +105,7 @@ while (true) {
             updateTask($tasks);
             break;
         case 4:
-            deleteTasks();
+            deleteTasks($tasks);
             break;
         case 5:
             echo "Exiting the application. Goodbye!\n";
