@@ -23,6 +23,7 @@
     </ol>
    </div>
    <img src="images\code-1839406_1280.jpg" alt="programē">
+   <br>
    <a href="index.php">atpakaļ</a>
    
    

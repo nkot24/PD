@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
 <h1>Piesakies webināram!</h1> 
-   <form action="" method="post">
+   <form action="/confirmation.php" method="post">
     <label for="first_name">Vārds</label>
     <input type="text" name="first_name" id="first_name">
     <label for="user_email">Ēpasts</label>
     <input type="email" name="user_email" id="user_email">
     <br>
     <p>kursa līmenis</p>
+    <select name="level" id="">
+        <option value="beginer"></option>
+        <option value="Intermediate"></option>
+        <option value="Advanced"></option>
+    </select>
     <br>
     <div>
         <input type="radio" name="kursa_līmenis" id="choice1" value="Beginner">
@@ -39,17 +44,19 @@
    <h3>Jau reģistrējušies</h3>
    
    <a href="blog.php">Uz blogu</a>
+   <br>
    <script src="Javascript/app.js"></script>
 </body>
 <?php
-$users [
-    1=>["name" => 'Janis',"email" => 'janis@gmail.com',"level" => 'Beginer' ]
-    2=>["name" => 'ancis',"email" => 'ancis@gmail.com',"level" => 'Beginer' ]
-    1=>["name" => 'aldis',"email" => 'aldisis@gmail.com',"level" => 'Advanced' ]
-];
-public function show_all($users){
-    foreach($users as $key => $users)
-    echo ($key, $users[$key])
-}
-
+    $names =[
+        ["name"=>"Janis","email"=>"janis@gmail.com","level"=>"beginer"],
+        ["name"=>"Juris","email"=>"jurs@gmail.com","level"=>"beginer"],
+        ["name"=>"Jojs","email"=>"jojs@gmail.com","level"=>"beginer"],
+    ];
+    foreach($names as $name){
+        echo "Vārds:" . $name["name"] . ", E-pasts: " . $name["email"] . "level: " . $name["level"] . "<br>";
+        
+        
+    }
+?>
 </html>
