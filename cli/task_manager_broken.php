@@ -41,7 +41,8 @@ function displayAllTasks($tasks) {
         echo "No tasks available.\n";
     } else {
         foreach ($tasks as $key => $tasks) {
-            echo($tasks, $users[$key]);
+          var_dump(value: $key);
+          $key->displayTask();
         }
     }
 }
@@ -60,6 +61,7 @@ function createTask(&$tasks) {
 
 function updateTask(&$tasks) {
     $id = readline("Enter Task ID to Update: ");
+    $newDescription = readline("Enter new description ");
 
     if (isset($tasks[$id])) {
         $newTitle = readline("Enter New Title: ");
